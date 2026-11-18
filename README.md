@@ -1,7 +1,7 @@
 <h1 align="center">Lalit Dev Jakher</h1>
 
 <p align="center">
-  <b>CSE student • builder of LectureLoop</b><br/>
+  <b>MSIS student at NYU Courant & Stern</b><br/>
   <sub>Building the study tools I wish I had: take your own notes in class, let AI turn them into a summary you can actually revise from.</sub>
 </p>
 
