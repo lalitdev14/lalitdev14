@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#1d2b3a" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="glow" x1="0" x2="1">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#7c5cff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .lbl{fill:#6b7f95;font-size:12px;letter-spacing:2px}
+      .hi{fill:#a78bfa}
+      .ok{fill:#5eead4}
+      .page{fill:#0f1a26;stroke:#a78bfa;stroke-width:2}
+      .line{stroke:#3b4b5e;stroke-width:3;stroke-linecap:round}
+      .p1{animation:fly 6s ease-in-out infinite}
+      .p2{animation:fly 6s ease-in-out infinite 1.2s}
+      .p3{animation:fly 6s ease-in-out infinite 2.4s}
+      @keyframes fly{
+        0%{transform:translate(0,0);opacity:0}
+        10%{opacity:1}
+        45%{transform:translate(400px,0);opacity:1}
+        60%{transform:translate(400px,0);opacity:0}
+        100%{transform:translate(400px,0);opacity:0}
+      }
+      .scan{animation:scan 2.4s linear infinite}
+      @keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(120px)}}
+      .out{animation:pulse 2s ease-in-out infinite}
+      @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+      .dot{animation:blink 1.2s steps(2) infinite}
+      @keyframes blink{50%{opacity:0}}
+      .tick{animation:march 4s linear infinite}
+      @keyframes march{to{stroke-dashoffset:-96}}
+    </style>
+    <clipPath id="frame"><rect x="2" y="2" width="1196" height="296" rx="22"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="#0a121b"/>
+    <rect width="1200" height="300" fill="url(#grid)"/>
+
+    <!-- header labels -->
+    <text x="28" y="36" class="lbl">BUILD <tspan class="hi">PDF-STUDIO</tspan> / <tspan class="hi">BROWSER-FIRST</tspan></text>
+    <text x="1172" y="36" class="lbl" text-anchor="end">LOCAL ONLY <tspan class="ok dot">●</tspan></text>
+
+    <!-- incoming pages -->
+    <g class="p1"><rect class="page" x="90" y="92" width="64" height="84" rx="6"/><path class="line" d="M102 112h40M102 126h30M102 140h40M102 154h22"/></g>
+    <g class="p2"><rect class="page" x="90" y="92" width="64" height="84" rx="6" style="stroke:#5eead4"/><path class="line" d="M102 112h40M102 126h40M102 140h26"/></g>
+    <g class="p3"><rect class="page" x="90" y="92" width="64" height="84" rx="6" style="stroke:#f472b6"/><path class="line" d="M102 112h30M102 126h40M102 140h40M102 154h34"/></g>
+
+    <!-- browser window (processor) -->
+    <g transform="translate(470,64)">
+      <rect width="260" height="168" rx="12" fill="#0f1a26" stroke="#2c3e52" stroke-width="2"/>
+      <path d="M0 30h260" stroke="#2c3e52" stroke-width="2"/>
+      <circle cx="18" cy="15" r="5" fill="#f87171"/><circle cx="36" cy="15" r="5" fill="#fbbf24"/><circle cx="54" cy="15" r="5" fill="#34d399"/>
+      <rect x="74" y="8" width="168" height="14" rx="7" fill="#162433"/>
+      <text x="84" y="19" font-size="10" fill="#6b7f95">localhost · no upload</text>
+      <g clip-path="inset(0)">
+        <rect class="scan" x="12" y="36" width="236" height="6" fill="url(#glow)"/>
+      </g>
+      <text x="22" y="66"  font-size="13" fill="#a78bfa">merge()</text>
+      <text x="22" y="90"  font-size="13" fill="#5eead4">rotate(90)</text>
+      <text x="22" y="114" font-size="13" fill="#f472b6">watermark()</text>
+      <text x="22" y="138" font-size="13" fill="#cbd5e1">pageNumbers()<tspan class="dot" fill="#a78bfa"> ▌</tspan></text>
+    </g>
+
+    <!-- output document -->
+    <g class="out" transform="translate(900,78)">
+      <rect x="14" y="-8" width="96" height="128" rx="8" fill="#0f1a26" stroke="#3b4b5e" stroke-width="2"/>
+      <rect x="7" y="-1" width="96" height="128" rx="8" fill="#0f1a26" stroke="#5b6b80" stroke-width="2"/>
+      <rect x="0" y="6" width="96" height="128" rx="8" fill="#0f1a26" stroke="#a78bfa" stroke-width="2.5"/>
+      <rect x="14" y="20" width="36" height="16" rx="3" fill="#a78bfa"/>
+      <text x="32" y="32" font-size="10" fill="#0a121b" text-anchor="middle" font-weight="700">PDF</text>
+      <path class="line" d="M14 52h66M14 68h52M14 84h66M14 100h40"/>
+    </g>
+
+    <!-- baseline track -->
+    <path d="M0 252H1200" stroke="#2c3e52" stroke-width="2" stroke-dasharray="14 10" class="tick"/>
+    <g fill="none" stroke="#a78bfa" stroke-width="2">
+      <rect x="292" y="246" width="12" height="12" transform="rotate(45 298 252)"/>
+      <rect x="594" y="246" width="12" height="12" transform="rotate(45 600 252)"/>
+      <rect x="896" y="246" width="12" height="12" transform="rotate(45 902 252)"/>
+    </g>
+
+    <text x="28" y="282" class="lbl">REACT • TYPESCRIPT • VITE • PDF-LIB • PDF.JS</text>
+    <text x="1172" y="282" class="lbl" text-anchor="end">STATUS: <tspan class="ok">SHIPPED, NOT JUST SKETCHED</tspan></text>
+  </g>
+  <rect x="2" y="2" width="1196" height="296" rx="22" fill="none" stroke="#7c5cff" stroke-opacity=".55" stroke-width="3"/>
+</svg>
